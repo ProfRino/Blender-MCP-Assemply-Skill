@@ -1,6 +1,12 @@
 # Blender-MCP-Assemply-Skill
 Blender Assembly is a geometry-building skill for creating reliable 3D models in Blender via MCP. It helps prevent common modelling errors by planning object connections, using correct primitive scaling, avoiding faulty cylinder rotations, verifying overlaps, and auditing final transforms.
 
+## Before vs After
+
+The image below shows how the Blender MCP Assembly Skill helps an AI agent move from a disconnected chair assembly to a cleaner, connected Blender model.
+
+![Before vs After](Before%20vs%20After.png)
+
 ## What is included in the skill?
 
 The Blender MCP Assembly Skill contains a practical workflow that guides an AI agent before, during, and after creating geometry in Blender. It starts with connection planning, where the agent maps how each part of the model should physically connect before writing any Blender Python code. This helps avoid disconnected or “exploded” models by making the agent think about joints, contact faces, and minimum overlaps from the beginning.
