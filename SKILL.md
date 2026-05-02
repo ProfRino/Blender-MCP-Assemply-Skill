@@ -56,7 +56,7 @@ Never create a cylinder and rotate it to point in a direction. Euler rotation or
 For any geometry that must span from point A to point B (legs, beams, axles, supports, pipes, rails), **build it with bmesh using explicit vertex positions**:
 
 ```python
-import bmesh, math
+import bpy, bmesh, math
 
 def make_beam(name, start, end, hw=0.012, hh=0.010):
     """Build a rectangular beam from start to end — no rotations needed."""
@@ -181,9 +181,10 @@ Apply to every mesh object:
 
 ```python
 def finalize(name):
-    obj = bpy.context.active_object
-    obj.name = name
-    obj.data.name = name
+    """Apply transforms, set origin to geometry, shade smooth for the named object."""
+    obj = bpy.data.objects[name]
+    bpy.context.view_layer.objects.active = obj
+    obj.select_set(True)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
     bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY', center='MEDIAN')
     bpy.ops.object.shade_smooth()
